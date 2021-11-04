@@ -1,2 +1,10 @@
 org/tensorflow/codelabs/objectdetection/BuildConfig.java
  org.tensorflow.codelabs.objectdetection.BuildConfig
+org/tensorflow/codelabs/objectdetection/RackDetails.java
+ org.tensorflow.codelabs.objectdetection.RackDetails
+org/tensorflow/codelabs/objectdetection/ProductDetails.java
+ org.tensorflow.codelabs.objectdetection.ProductDetails
+org/tensorflow/codelabs/objectdetection/Planogram.java
+ org.tensorflow.codelabs.objectdetection.Planogram
+org/tensorflow/codelabs/objectdetection/ShelfDetails.java
+ org.tensorflow.codelabs.objectdetection.ShelfDetails

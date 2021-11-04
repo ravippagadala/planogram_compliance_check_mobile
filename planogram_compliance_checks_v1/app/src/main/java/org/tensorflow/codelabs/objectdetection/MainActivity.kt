@@ -46,7 +46,10 @@ import kotlin.math.max
 import kotlin.math.min
 import android.graphics.RectF
 import java.io.InputStream
+//import android.util.Log
 
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     companion object {
@@ -152,7 +155,17 @@ fun readJSONFromAsset(): String? {
 
         // Step 3: Feed given image to the detector
         val results = detector.detect(image)
-
+        val utils = Utils()
+        val jsonFileString = utils.getJsonDataFromAsset(applicationContext, "planogram.json")
+        if (jsonFileString != null) {
+            Log.i("data", jsonFileString)
+        }
+        val gson = Gson()
+        //val listPlanogramType = object : TypeToken<`Planogram.kt`>() {}.type
+        //var planograms: List<Planogram> = gson.fromJson(jsonFileString, listPlanogramType)
+        //var planograms = gson.fromJson<Planogram>(jsonFileString, Planogram::class.java)
+        //planograms.forEachIndexed{ idx, shelf -> Log.i("data", "> Item $idx:\n$shelf") }
+        //Log.i("check", planograms.store_id.toString())
         //val pepsi_box = RectF( 500.0f, 720.0f, 1100.0f, 1010.0f)
         val pepsi_box = RectF( 340.0f, 500.0f, 750.0f, 700.0f)
         val pepsi_box_count = 5
@@ -271,17 +284,17 @@ fun readJSONFromAsset(): String? {
         //}
         val resultToDisplay = mutableListOf<DetectionResult>()
         resultToDisplay.add(DetectionResult(pepsi_box,
-            "add "+add_pepsi_box_count+" Pepsi"+";"+"rm "+rm_pepsi_box_count))
+            "Pepsi +"+add_pepsi_box_count+"|"+"-"+rm_pepsi_box_count))
         resultToDisplay.add(DetectionResult(sevenup_box,
-            System.getProperty("line.separator")+"add "+add_sevenup_box_count+" Sevenup"+";"+"rm "+rm_sevenup_box_count))
+            "Sevenup +"+add_sevenup_box_count+"|"+"-"+rm_sevenup_box_count))
         resultToDisplay.add(DetectionResult(orange_box,
-            System.getProperty("line.separator")+"add "+add_orange_box_count+" Orange"+";"+"rm "+rm_orange_box_count))
+            "Orange +"+add_orange_box_count+"|"+"-"+rm_orange_box_count))
         resultToDisplay.add(DetectionResult(tomato_box,
-            System.getProperty("line.separator")+"add "+add_tomato_box_count+" Tomato"+";"+"rm "+rm_tomato_box_count))
+            "Tomato +"+add_tomato_box_count+"|"+"-"+rm_tomato_box_count))
         resultToDisplay.add(DetectionResult(beans_box,
-            System.getProperty("line.separator")+"add "+add_beans_box_count+" Beans"+";"+"rm "+rm_beans_box_count))
+            "Beans +"+add_beans_box_count+"|"+"-"+rm_beans_box_count))
         resultToDisplay.add(DetectionResult(blueberries_box,
-            System.getProperty("line.separator")+"add "+add_blueberries_box_count+" Blueberries"+";"+"rm "+rm_blueberries_box_count))
+            "Blueberries +"+add_blueberries_box_count+"|"+"-"+rm_blueberries_box_count))
         // Draw the detection result on the bitmap and show it.
         //384x512 pixels is the input image size
         val imgWithResult = drawDetectionResult(bitmap, resultToDisplay)
@@ -499,3 +512,4 @@ fun readJSONFromAsset(): String? {
  *      A class to store the visualization info of a detected object.
  */
 data class DetectionResult(val boundingBox: RectF, val text: String)
+
