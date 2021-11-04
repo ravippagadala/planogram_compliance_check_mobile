@@ -1,0 +1,126 @@
+{
+  "store_details": {
+    "store_name": "ASDA",
+    "store_id": 101,
+    "store_address": "Teesside, Middlesbrough"
+  },
+  "shelf_details": [
+    {
+      "shelf_id": 1,
+      "number_of_racks": 3,
+      "rack_details": [
+        {
+          "rack_id": 1,
+          "x_min": 30,
+          "y_min": 150,
+          "x_max": 750,
+          "y_max": 330
+        },
+        {
+          "rack_id": 2,
+          "x_min": 70,
+          "y_min": 500,
+          "x_max": 750,
+          "y_max": 700
+        },
+        {
+          "rack_id": 3,
+          "x_min": 100,
+          "y_min": 750,
+          "x_max": 600,
+          "y_max": 970
+        }
+      ]
+    },
+    {
+      "shelf_id": 2,
+      "number_of_racks": 4,
+      "rack_details": [
+        {
+          "rack_id": 1,
+          "x_min": 100,
+          "y_min": 100,
+          "x_max": 500,
+          "y_max": 500
+        },
+        {
+          "rack_id": 2,
+          "x_min": 100,
+          "y_min": 100,
+          "x_max": 500,
+          "y_max": 500
+        },
+        {
+          "rack_id": 3,
+          "x_min": 100,
+          "y_min": 100,
+          "x_max": 500,
+          "y_max": 500
+        },
+        {
+          "rack_id": 4,
+          "x_min": 100,
+          "y_min": 100,
+          "x_max": 500,
+          "y_max": 500
+        }
+      ]
+    }
+  ],
+  "product_details": [
+    {
+      "product_id": 1,
+      "product_description": "Baked beans",
+      "product_label": "beans",
+      "shelf_id": 1,
+      "rack_id": 1,
+      "presence_x_start": 0.0,
+      "presence_x_end": 0.5
+    },
+    {
+      "product_id": 2,
+      "product_description": "Chopped Tomatoes",
+      "product_label": "tomato",
+      "shelf_id": 1,
+      "rack_id": 1,
+      "presence_x_start": 0.5,
+      "presence_x_end": 1.0
+    },
+    {
+      "product_id": 3,
+      "product_description": "Seven Up free",
+      "product_label": "sevenup",
+      "shelf_id": 1,
+      "rack_id": 2,
+      "presence_x_start": 0.0,
+      "presence_x_end": 0.5
+    },
+    {
+      "product_id": 4,
+      "product_description": "Pepsi Max",
+      "product_label": "pepsi",
+      "shelf_id": 1,
+      "rack_id": 2,
+      "presence_x_start": 0.5,
+      "presence_x_end": 1.0
+    },
+    {
+      "product_id": 5,
+      "product_description": "Fruit Shoot Orange flavour",
+      "product_label": "orange",
+      "shelf_id": 1,
+      "rack_id": 3,
+      "presence_x_start": 0.0,
+      "presence_x_end": 0.5
+    },
+    {
+      "product_id": 6,
+      "product_description": "Fruit Shoot blue berries flavour",
+      "product_label": "blueberries",
+      "shelf_id": 1,
+      "rack_id": 3,
+      "presence_x_start": 0.5,
+      "presence_x_end": 1.0
+    }
+  ]
+}
