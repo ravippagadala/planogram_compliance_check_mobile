@@ -116,19 +116,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             }
         }
     }
-//Read JSON file from asset folder
-    //https://www.tutorialspoint.com/how-to-parse-json-objects-on-android-using-kotlin
-fun readJSONFromAsset(): String? {
-    var json: String? = null
-    try {
-        val  inputStream: InputStream = assets.open("planogram.json")
-        json = inputStream.bufferedReader().use{it.readText()}
-    } catch (ex: Exception) {
-        ex.printStackTrace()
-        return null
-    }
-    return json
-}
+
     // Parse that JSON with Gson
     //fun parseJSON() {
       //  Gson().fromJson(readJSONFromAsset(), YourObjectModel::class.java)
@@ -163,9 +151,9 @@ fun readJSONFromAsset(): String? {
         val gson = Gson()
         //val listPlanogramType = object : TypeToken<`Planogram.kt`>() {}.type
         //var planograms: List<Planogram> = gson.fromJson(jsonFileString, listPlanogramType)
-        //var planograms = gson.fromJson<Planogram>(jsonFileString, Planogram::class.java)
+        val planograms = gson.fromJson(jsonFileString,Planogram::class.java)
         //planograms.forEachIndexed{ idx, shelf -> Log.i("data", "> Item $idx:\n$shelf") }
-        //Log.i("check", planograms.store_id.toString())
+        Log.i("check", planograms.shelf_details.elementAt(1).shelf_id.toString())
         //val pepsi_box = RectF( 500.0f, 720.0f, 1100.0f, 1010.0f)
         val pepsi_box = RectF( 340.0f, 500.0f, 750.0f, 700.0f)
         val pepsi_box_count = 5

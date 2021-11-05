@@ -1,7 +1,7 @@
 {
     "logs": [
         {
-            "outputFile": "C:\\Users\\Admin\\Downloads\\odml-pathways-main (1)\\odml-pathways-main\\object-detection\\codelab2\\android\\final\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ur\\values-ur.xml",
+            "outputFile": "C:\\Users\\Admin\\Downloads\\planogram_compliance_checks\\planogram_compliance_check_mobile\\planogram_compliance_checks_v1\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-ur\\values-ur.xml",
             "map": [
                 {
                     "source": "C:\\Users\\Admin\\.gradle\\caches\\transforms-2\\files-2.1\\f4726924add2327517ec5f23b6aa3aba\\core-1.3.2\\res\\values-ur\\values-ur.xml",

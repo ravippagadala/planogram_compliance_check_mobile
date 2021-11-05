@@ -1,7 +1,7 @@
-#Thu Nov 04 14:22:09 GMT 2021
-base.1=C\:\\Users\\Admin\\Downloads\\odml-pathways-main (1)\\odml-pathways-main\\object-detection\\codelab2\\android\\final\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
+#Fri Nov 05 07:30:45 GMT 2021
+base.1=C\:\\Users\\Admin\\Downloads\\planogram_compliance_checks\\planogram_compliance_check_mobile\\planogram_compliance_checks_v1\\app\\build\\intermediates\\dex\\debug\\mergeProjectDexDebug\\classes.dex
 path.1=classes.dex
-base.0=C\:\\Users\\Admin\\Downloads\\odml-pathways-main (1)\\odml-pathways-main\\object-detection\\codelab2\\android\\final\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
+base.0=C\:\\Users\\Admin\\Downloads\\planogram_compliance_checks\\planogram_compliance_check_mobile\\planogram_compliance_checks_v1\\app\\build\\intermediates\\dex\\debug\\mergeExtDexDebug\\classes.dex
 renamed.1=classes2.dex
 renamed.0=classes.dex
 path.0=classes.dex
