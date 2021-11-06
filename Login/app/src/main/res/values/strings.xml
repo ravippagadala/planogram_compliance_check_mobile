@@ -9,4 +9,7 @@
     <string name="invalid_username">Not a valid username</string>
     <string name="invalid_password">Password must be >5 characters</string>
     <string name="login_failed">"Login failed"</string>
+    <string name="tv_take_photo">Take photo</string>
+    <string name="tv_description">Select a preset image or take a new photo</string>
+    <string name="tv_placeholder">Planogram Compliance Checks</string>
 </resources>
