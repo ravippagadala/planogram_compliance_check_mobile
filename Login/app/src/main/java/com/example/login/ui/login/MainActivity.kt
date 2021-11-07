@@ -46,11 +46,9 @@ import kotlin.math.max
 import kotlin.math.min
 import android.graphics.RectF
 import com.example.login.R
-import java.io.InputStream
 //import android.util.Log
 
 import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     companion object {

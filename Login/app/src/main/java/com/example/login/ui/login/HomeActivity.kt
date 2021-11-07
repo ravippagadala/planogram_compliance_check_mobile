@@ -57,9 +57,9 @@ class HomeActivity : AppCompatActivity() {
         val shelf_one = findViewById(R.id.firstBTN) as Button
         // set on-click listener
         shelf_one.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
+            val intentMain = Intent(this, MainActivity::class.java)
             // start your next activity
-            startActivity(intent)
+            startActivity(intentMain)
 
         }
 
