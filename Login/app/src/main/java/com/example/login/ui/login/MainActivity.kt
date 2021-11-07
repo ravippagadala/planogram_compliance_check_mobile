@@ -64,10 +64,19 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var imgSampleThree: ImageView
     private lateinit var tvPlaceholder: TextView
     private lateinit var currentPhotoPath: String
-
+    var shelfID: Int?=0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
+
+         val shelfIDstr = intent.getStringExtra("shelfID")
+        if (shelfIDstr != null) {
+            shelfID = shelfIDstr.toInt()
+        }
+        //val shelfIDStr: String
+
+
 
         captureImageFab = findViewById(R.id.captureImageFab)
         inputImageView = findViewById(R.id.imageView)
@@ -144,15 +153,44 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val results = detector.detect(image)
         val utils = Utils()
         val jsonFileString = utils.getJsonDataFromAsset(applicationContext, "planogram.json")
-        if (jsonFileString != null) {
-            Log.i("data", jsonFileString)
-        }
+
         val gson = Gson()
-        //val listPlanogramType = object : TypeToken<`Planogram.kt`>() {}.type
-        //var planograms: List<Planogram> = gson.fromJson(jsonFileString, listPlanogramType)
-        val planograms = gson.fromJson(jsonFileString,Planogram::class.java)
-        //planograms.forEachIndexed{ idx, shelf -> Log.i("data", "> Item $idx:\n$shelf") }
-        Log.i("check", planograms.shelf_details.elementAt(1).shelf_id.toString())
+        val planogram = gson.fromJson(jsonFileString,Planogram::class.java)
+        val shelf_details = shelfID?.let { planogram.shelf_details.get(it) }
+
+
+
+
+        val product_details = planogram.product_details
+        //val rack = shelf_details?.rack_details
+
+        val shelf_product_details: MutableList<ProductDetails?> = ArrayList()
+        for (product in product_details){
+            if(product.shelf_id == shelfID?.plus(1)){
+                if (shelf_details != null) {
+                    for(rack in shelf_details.rack_details){
+                        if(product.rack_id == rack.rack_id){
+                            val x_min: Double
+                            val y_min: Double
+                            val x_max: Double
+                            val y_max: Double
+                            x_min = rack.x_min + (rack.x_max - rack.x_min) * product.presence_x_start
+                            x_max = rack.x_min + (rack.x_max - rack.x_min) * product.presence_x_end
+                            y_min = rack.y_min.toDouble()
+                            y_max = rack.y_max.toDouble()
+
+                        }
+
+                    }
+                }
+
+
+
+
+            }
+
+        }
+
         //val pepsi_box = RectF( 500.0f, 720.0f, 1100.0f, 1010.0f)
         val pepsi_box = RectF( 340.0f, 500.0f, 750.0f, 700.0f)
         val pepsi_box_count = 5
@@ -493,6 +531,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         return outputBitmap
     }
 }
+
 
 /**
  * DetectionResult
