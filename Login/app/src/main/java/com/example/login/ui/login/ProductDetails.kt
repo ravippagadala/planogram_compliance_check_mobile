@@ -7,5 +7,6 @@ data class ProductDetails  (
     var shelf_id: Int,
     var rack_id: Int,
     var presence_x_start: Double,
-    var presence_x_end: Double
+    var presence_x_end: Double,
+    var product_count: Int
 )

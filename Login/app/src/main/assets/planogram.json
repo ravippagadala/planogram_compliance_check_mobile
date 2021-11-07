@@ -2,7 +2,7 @@
   "store_name": "ASDA",
   "store_id": 101,
   "store_address": "Teesside, Middlesbrough",
-  "store_contact": 121,
+  "store_contact": 4474593,
   "shelf_details": [
     {
       "shelf_id": 1,
@@ -74,7 +74,8 @@
       "shelf_id": 1,
       "rack_id": 1,
       "presence_x_start": 0.0,
-      "presence_x_end": 0.5
+      "presence_x_end": 0.5,
+      "product_count": 4
     },
     {
       "product_id": 2,
@@ -83,7 +84,8 @@
       "shelf_id": 1,
       "rack_id": 1,
       "presence_x_start": 0.5,
-      "presence_x_end": 1.0
+      "presence_x_end": 1.0,
+      "product_count": 4
     },
     {
       "product_id": 3,
@@ -92,7 +94,8 @@
       "shelf_id": 1,
       "rack_id": 2,
       "presence_x_start": 0.0,
-      "presence_x_end": 0.5
+      "presence_x_end": 0.5,
+      "product_count": 4
     },
     {
       "product_id": 4,
@@ -101,7 +104,8 @@
       "shelf_id": 1,
       "rack_id": 2,
       "presence_x_start": 0.5,
-      "presence_x_end": 1.0
+      "presence_x_end": 1.0,
+      "product_count": 5
     },
     {
       "product_id": 5,
@@ -110,7 +114,8 @@
       "shelf_id": 1,
       "rack_id": 3,
       "presence_x_start": 0.0,
-      "presence_x_end": 0.5
+      "presence_x_end": 0.5,
+      "product_count": 4
     },
     {
       "product_id": 6,
@@ -119,7 +124,8 @@
       "shelf_id": 1,
       "rack_id": 3,
       "presence_x_start": 0.5,
-      "presence_x_end": 1.0
+      "presence_x_end": 1.0,
+      "product_count": 4
     }
   ]
 }

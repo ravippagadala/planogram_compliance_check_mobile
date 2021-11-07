@@ -160,9 +160,37 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
 
 
+        var pepsi_box = RectF()
+        var pepsi_box_count: Int
+        var add_pepsi_box_count = 0
+        var rm_pepsi_box_count:Int  = 0
+
+        var sevenup_box = RectF()
+        var sevenup_box_count: Int
+        var add_sevenup_box_count = 0
+        var rm_sevenup_box_count:Int = 0
+
+        var beans_box = RectF()
+        var beans_box_count:Int
+        var add_beans_box_count = 0
+        var rm_beans_box_count:Int = 0
+
+        var tomato_box = RectF()
+        var tomato_box_count:Int
+        var add_tomato_box_count = 0
+        var rm_tomato_box_count:Int = 0
+
+        var orange_box = RectF() //( 100.0f, 750.0f, 350.0f, 970.0f)
+        var orange_box_count:Int
+        var add_orange_box_count = 0
+        var rm_orange_box_count:Int = 0
+
+        var blueberries_box = RectF()
+        var blueberries_box_count:Int
+        var add_blueberries_box_count = 0
+        var rm_blueberries_box_count:Int = 0
 
         val product_details = planogram.product_details
-        //val rack = shelf_details?.rack_details
 
         val shelf_product_details: MutableList<ProductDetails?> = ArrayList()
         for (product in product_details){
@@ -178,53 +206,61 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                             x_max = rack.x_min + (rack.x_max - rack.x_min) * product.presence_x_end
                             y_min = rack.y_min.toDouble()
                             y_max = rack.y_max.toDouble()
+                            if (product.product_label == "pepsi"){
+                                pepsi_box = RectF(x_min.toFloat(), y_min.toFloat(), x_max.toFloat(), y_max.toFloat())
+                                add_pepsi_box_count = product.product_count
+                            }
+                            if (product.product_label == "sevenup"){
+                                sevenup_box = RectF(x_min.toFloat(), y_min.toFloat(), x_max.toFloat(), y_max.toFloat())
+                                add_sevenup_box_count = product.product_count
+                            }
+                            if (product.product_label == "beans"){
+                                beans_box = RectF(x_min.toFloat(), y_min.toFloat(), x_max.toFloat(), y_max.toFloat())
+                                add_beans_box_count = product.product_count
+                            }
+                            if (product.product_label == "tomato"){
+                                tomato_box = RectF(x_min.toFloat(), y_min.toFloat(), x_max.toFloat(), y_max.toFloat())
+                                add_tomato_box_count = product.product_count
+                            }
+                            if (product.product_label == "orange"){
+                                orange_box = RectF(x_min.toFloat(), y_min.toFloat(), x_max.toFloat(), y_max.toFloat())
+                                add_orange_box_count = product.product_count
+                            }
+                            if (product.product_label == "blueberries"){
+                                blueberries_box = RectF(x_min.toFloat(), y_min.toFloat(), x_max.toFloat(), y_max.toFloat())
+                                add_blueberries_box_count = product.product_count
+                            }
 
                         }
 
                     }
                 }
 
-
-
-
             }
 
         }
 
         //val pepsi_box = RectF( 500.0f, 720.0f, 1100.0f, 1010.0f)
-        val pepsi_box = RectF( 340.0f, 500.0f, 750.0f, 700.0f)
-        val pepsi_box_count = 5
-        var add_pepsi_box_count = pepsi_box_count
-        var rm_pepsi_box_count = 0
+        //pepsi_box = RectF( 340.0f, 500.0f, 750.0f, 700.0f)
+
 
         //val sevenup_box = RectF( 100.0f, 700.0f, 500.0f, 1020.0f)
-        val sevenup_box = RectF( 70.0f, 500.0f, 340.0f, 700.0f)
-        val sevenup_box_count = 4
-        var add_sevenup_box_count = sevenup_box_count
-        var rm_sevenup_box_count = 0
+        //val sevenup_box = RectF( 70.0f, 500.0f, 340.0f, 700.0f)
 
-        val beans_box = RectF( 30.0f, 150.0f, 380.0f,330.0f)
-        val beans_box_count = 4
-        var add_beans_box_count = beans_box_count
-        var rm_beans_box_count = 0
+
+        //val beans_box = RectF( 30.0f, 150.0f, 380.0f,330.0f)
+
 
         //val tomato_box = RectF( 550.0f, 200.0f, 1100.0f, 530.0f)
-        val tomato_box = RectF( 380.0f, 150.0f, 750.0f, 330.0f)
-        val tomato_box_count = 4
-        var add_tomato_box_count = tomato_box_count
-        var rm_tomato_box_count = 0
+        //val tomato_box = RectF( 380.0f, 150.0f, 750.0f, 330.0f)
+
 
         //val orange_box = RectF( 160.0f, 1100.0f, 550.0f, 1500.0f)
-        val orange_box = RectF( 100.0f, 750.0f, 350.0f, 970.0f)
-        val orange_box_count = 4
-        var add_orange_box_count = orange_box_count
-        var rm_orange_box_count = 0
 
-        //val blueberries_box = RectF( 500.0f, 1100.0f, 1100.0f, 1450.0f)
-        val blueberries_box = RectF( 350.0f, 750.0f, 600.0f, 970.0f)
-        val blueberries_box_count = 4
-        var add_blueberries_box_count = blueberries_box_count
-        var rm_blueberries_box_count = 0
+
+
+        //val blueberries_box = RectF( 350.0f, 750.0f, 600.0f, 970.0f)
+
 
 
         for (item in results){
