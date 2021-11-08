@@ -45,6 +45,7 @@ import java.util.*
 import kotlin.math.max
 import kotlin.math.min
 import android.graphics.RectF
+import com.example.login.BuildConfig
 import com.example.login.R
 //import android.util.Log
 
@@ -526,9 +527,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 // Continue only if the File was successfully created
                 photoFile?.also {
                     val photoURI: Uri = FileProvider.getUriForFile(
-                        this,
-                        "org.tensorflow.codelabs.objectdetection.fileprovider",
-                        it
+                        //this,
+                        //"org.tensorflow.codelabs.objectdetection.fileprovider",
+                        //it
+                        Objects.requireNonNull(getApplicationContext()),
+                        BuildConfig.APPLICATION_ID + ".provider",photoFile
                     )
                     takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI)
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE_CAPTURE)
