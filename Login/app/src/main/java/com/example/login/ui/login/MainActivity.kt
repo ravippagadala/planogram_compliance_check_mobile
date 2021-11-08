@@ -345,17 +345,36 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //}
         val resultToDisplay = mutableListOf<DetectionResult>()
         resultToDisplay.add(DetectionResult(pepsi_box,
-            "Pepsi +"+add_pepsi_box_count+"|"+"-"+rm_pepsi_box_count))
+            "Pepsi +"+add_pepsi_box_count+"|"+"-"+rm_pepsi_box_count,"Blue",
+            if(rm_pepsi_box_count == 0 && add_pepsi_box_count == 0) "Green"
+            else if(rm_pepsi_box_count > 0) "Red"
+            else "Brown"
+        ))
         resultToDisplay.add(DetectionResult(sevenup_box,
-            "Sevenup +"+add_sevenup_box_count+"|"+"-"+rm_sevenup_box_count))
+            "Sevenup +"+add_sevenup_box_count+"|"+"-"+rm_sevenup_box_count, "Green",
+            if(rm_sevenup_box_count == 0 && add_sevenup_box_count == 0) "Green"
+            else if(rm_sevenup_box_count > 0) "Red"
+            else "Brown"))
         resultToDisplay.add(DetectionResult(orange_box,
-            "Orange +"+add_orange_box_count+"|"+"-"+rm_orange_box_count))
+            "Orange +"+add_orange_box_count+"|"+"-"+rm_orange_box_count, "Green",
+            if(rm_orange_box_count == 0 && add_orange_box_count == 0) "Green"
+            else if(rm_orange_box_count > 0) "Red"
+            else "Brown"))
         resultToDisplay.add(DetectionResult(tomato_box,
-            "Tomato +"+add_tomato_box_count+"|"+"-"+rm_tomato_box_count))
+            "Tomato +"+add_tomato_box_count+"|"+"-"+rm_tomato_box_count, "Blue",
+            if(rm_tomato_box_count == 0 && add_tomato_box_count == 0) "Green"
+            else if(rm_tomato_box_count > 0) "Red"
+            else "Brown"))
         resultToDisplay.add(DetectionResult(beans_box,
-            "Beans +"+add_beans_box_count+"|"+"-"+rm_beans_box_count))
+            "Beans +"+add_beans_box_count+"|"+"-"+rm_beans_box_count, "Green",
+            if(rm_beans_box_count == 0 && add_beans_box_count == 0) "Green"
+            else if(rm_beans_box_count > 0) "Red"
+            else "Brown"))
         resultToDisplay.add(DetectionResult(blueberries_box,
-            "Blueberries +"+add_blueberries_box_count+"|"+"-"+rm_blueberries_box_count))
+            "Blueberries +"+add_blueberries_box_count+"|"+"-"+rm_blueberries_box_count, "Blue",
+            if(rm_blueberries_box_count == 0 && add_blueberries_box_count == 0) "Green"
+            else if(rm_blueberries_box_count > 0) "Red"
+            else "Brown"))
         // Draw the detection result on the bitmap and show it.
         //384x512 pixels is the input image size
         val imgWithResult = drawDetectionResult(bitmap, resultToDisplay)
@@ -535,7 +554,10 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         detectionResults.forEach {
             // draw bounding box
-            pen.color = Color.RED
+            if(it.clr == "Green")
+                pen.color = Color.GREEN
+            else
+                pen.color = Color.BLUE
             pen.strokeWidth = 8F
             pen.style = Paint.Style.STROKE
 
@@ -547,11 +569,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             // calculate the right font size
             pen.style = Paint.Style.FILL_AND_STROKE
-            pen.color = Color.YELLOW
+            if (it.textclr == "Red")
+                pen.color = Color.RED
+            else if(it.textclr == "Green")
+                pen.color = Color.GREEN
+            else
+                pen.color = Color.YELLOW
             pen.strokeWidth = 2F
 
-            pen.textSize = MAX_FONT_SIZE
+            pen.textSize = 50F//MAX_FONT_SIZE
             pen.getTextBounds(it.text, 0, it.text.length, tagSize)
+
             val fontSize: Float = pen.textSize * box.width() / tagSize.width()
 
             // adjust the font size so texts are inside the bounding box
@@ -573,5 +601,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
  * DetectionResult
  *      A class to store the visualization info of a detected object.
  */
-data class DetectionResult(val boundingBox: RectF, val text: String)
+data class DetectionResult(val boundingBox: RectF, val text: String, val clr: String, val textclr: String)
 

@@ -11,57 +11,50 @@
         {
           "rack_id": 1,
           "x_min": 30,
-          "y_min": 150,
+          "y_min": 100,
           "x_max": 750,
-          "y_max": 330
+          "y_max": 350
         },
         {
           "rack_id": 2,
-          "x_min": 70,
-          "y_min": 500,
+          "x_min": 30,
+          "y_min": 450,
           "x_max": 750,
           "y_max": 700
         },
         {
           "rack_id": 3,
-          "x_min": 100,
+          "x_min": 30,
           "y_min": 750,
-          "x_max": 600,
+          "x_max": 750,
           "y_max": 970
         }
       ]
     },
     {
       "shelf_id": 2,
-      "number_of_racks": 4,
+      "number_of_racks": 3,
       "rack_details": [
         {
           "rack_id": 1,
-          "x_min": 100,
+          "x_min": 30,
           "y_min": 100,
-          "x_max": 500,
-          "y_max": 500
+          "x_max": 750,
+          "y_max": 350
         },
         {
           "rack_id": 2,
-          "x_min": 100,
-          "y_min": 100,
-          "x_max": 500,
-          "y_max": 500
+          "x_min": 30,
+          "y_min": 450,
+          "x_max": 750,
+          "y_max": 700
         },
         {
           "rack_id": 3,
-          "x_min": 100,
-          "y_min": 100,
-          "x_max": 500,
-          "y_max": 500
-        },
-        {
-          "rack_id": 4,
-          "x_min": 100,
-          "y_min": 100,
-          "x_max": 500,
-          "y_max": 500
+          "x_min": 30,
+          "y_min": 750,
+          "x_max": 750,
+          "y_max": 970
         }
       ]
     }
@@ -83,7 +76,7 @@
       "product_label": "tomato",
       "shelf_id": 1,
       "rack_id": 1,
-      "presence_x_start": 0.5,
+      "presence_x_start": 0.45,
       "presence_x_end": 1.0,
       "product_count": 4
     },
@@ -94,7 +87,7 @@
       "shelf_id": 1,
       "rack_id": 2,
       "presence_x_start": 0.0,
-      "presence_x_end": 0.5,
+      "presence_x_end": 0.45,
       "product_count": 4
     },
     {
@@ -103,7 +96,7 @@
       "product_label": "pepsi",
       "shelf_id": 1,
       "rack_id": 2,
-      "presence_x_start": 0.5,
+      "presence_x_start": 0.4,
       "presence_x_end": 1.0,
       "product_count": 5
     },
@@ -123,7 +116,67 @@
       "product_label": "blueberries",
       "shelf_id": 1,
       "rack_id": 3,
-      "presence_x_start": 0.5,
+      "presence_x_start": 0.45,
+      "presence_x_end": 1.0,
+      "product_count": 4
+    },
+    {
+      "product_id": 1,
+      "product_description": "Fruit Shoot blue berries flavour",
+      "product_label": "blueberries",
+      "shelf_id": 2,
+      "rack_id": 1,
+      "presence_x_start": 0.0,
+      "presence_x_end": 0.5,
+      "product_count": 4
+    },
+    {
+      "product_id": 2,
+      "product_description": "Fruit Shoot Orange flavour",
+      "product_label": "orange",
+      "shelf_id": 2,
+      "rack_id": 1,
+      "presence_x_start": 0.45,
+      "presence_x_end": 1.0,
+      "product_count": 4
+    },
+    {
+      "product_id": 3,
+      "product_description": "Pepsi Max",
+      "product_label": "pepsi",
+      "shelf_id": 2,
+      "rack_id": 2,
+      "presence_x_start": 0.0,
+      "presence_x_end": 0.45,
+      "product_count": 4
+    },
+    {
+      "product_id": 4,
+      "product_description": "Seven Up free",
+      "product_label": "sevenup",
+      "shelf_id": 2,
+      "rack_id": 2,
+      "presence_x_start": 0.4,
+      "presence_x_end": 1.0,
+      "product_count": 5
+    },
+    {
+      "product_id": 5,
+      "product_description": "Baked beans",
+      "product_label": "beans",
+      "shelf_id": 2,
+      "rack_id": 3,
+      "presence_x_start": 0.0,
+      "presence_x_end": 0.5,
+      "product_count": 4
+    },
+    {
+      "product_id": 6,
+      "product_description": "Chopped Tomatoes",
+      "product_label": "tomato",
+      "shelf_id": 2,
+      "rack_id": 3,
+      "presence_x_start": 0.45,
       "presence_x_end": 1.0,
       "product_count": 4
     }
