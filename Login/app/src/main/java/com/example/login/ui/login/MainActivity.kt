@@ -263,88 +263,85 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         //val blueberries_box = RectF( 350.0f, 750.0f, 600.0f, 970.0f)
 
 
-
-        for (item in results){
+        val resultToDisplay = mutableListOf<DetectionResult>()
+        for (item in results) {
             if (pepsi_box.left <= item.boundingBox.left
-                    && pepsi_box.top <= item.boundingBox.top
+                && pepsi_box.top <= item.boundingBox.top
                 && pepsi_box.right >= item.boundingBox.right
                 && pepsi_box.bottom >= item.boundingBox.bottom
-                //&& item.categories.first().label == "pepsi"
-            )
-                {
-                    if(item.categories.first().label == "pepsi")
+            //&& item.categories.first().label == "pepsi"
+            ) {
+                if (item.categories.first().label == "pepsi")
                     add_pepsi_box_count = add_pepsi_box_count - 1
-                    else rm_pepsi_box_count = rm_pepsi_box_count + 1
-                }
+                else rm_pepsi_box_count = rm_pepsi_box_count + 1
+            }
             if (sevenup_box.left <= item.boundingBox.left
                 && sevenup_box.top <= item.boundingBox.top
                 && sevenup_box.right >= item.boundingBox.right
                 && sevenup_box.bottom >= item.boundingBox.bottom
-                //&& item.categories.first().label == "sevenup"
-            )
-            {
-                if(item.categories.first().label == "sevenup")
-                add_sevenup_box_count = add_sevenup_box_count - 1
+            //&& item.categories.first().label == "sevenup"
+            ) {
+                if (item.categories.first().label == "sevenup")
+                    add_sevenup_box_count = add_sevenup_box_count - 1
                 else rm_sevenup_box_count = rm_sevenup_box_count + 1
             }
             if (tomato_box.left <= item.boundingBox.left
                 && tomato_box.top <= item.boundingBox.top
                 && tomato_box.right >= item.boundingBox.right
                 && tomato_box.bottom >= item.boundingBox.bottom
-                //&& item.categories.first().label == "tomato"
-            )
-            {
-                if( item.categories.first().label == "tomato")
-                add_tomato_box_count = add_tomato_box_count - 1
+            //&& item.categories.first().label == "tomato"
+            ) {
+                if (item.categories.first().label == "tomato")
+                    add_tomato_box_count = add_tomato_box_count - 1
                 else rm_tomato_box_count = rm_tomato_box_count + 1
             }
             if (beans_box.left <= item.boundingBox.left
                 && beans_box.top <= item.boundingBox.top
                 && beans_box.right >= item.boundingBox.right
                 && beans_box.bottom >= item.boundingBox.bottom
-                //&& item.categories.first().label == "beans"
-            )
-            {
-                if(item.categories.first().label == "beans")
-                add_beans_box_count = add_beans_box_count - 1
+            //&& item.categories.first().label == "beans"
+            ) {
+                if (item.categories.first().label == "beans")
+                    add_beans_box_count = add_beans_box_count - 1
                 else rm_beans_box_count = rm_beans_box_count + 1
             }
             if (orange_box.left <= item.boundingBox.left
                 && orange_box.top <= item.boundingBox.top
                 && orange_box.right >= item.boundingBox.right
                 && orange_box.bottom >= item.boundingBox.bottom
-                //&& item.categories.first().label == "orange"
-            )
-            {
-                if(item.categories.first().label == "orange")
-                add_orange_box_count = add_orange_box_count - 1
+            //&& item.categories.first().label == "orange"
+            ) {
+                if (item.categories.first().label == "orange")
+                    add_orange_box_count = add_orange_box_count - 1
                 else rm_orange_box_count = rm_orange_box_count + 1
             }
             if (blueberries_box.left <= item.boundingBox.left
                 && blueberries_box.top <= item.boundingBox.top
                 && blueberries_box.right >= item.boundingBox.right
                 && blueberries_box.bottom >= item.boundingBox.bottom
-                //&& item.categories.first().label == "blueberries"
-            )
-            {
-                if(item.categories.first().label == "blueberries")
-                add_blueberries_box_count = add_blueberries_box_count - 1
+            //&& item.categories.first().label == "blueberries"
+            ) {
+                if (item.categories.first().label == "blueberries")
+                    add_blueberries_box_count = add_blueberries_box_count - 1
                 else rm_blueberries_box_count = rm_blueberries_box_count + 1
             }
-        }
-        // Step 4: Parse the detection result and show it
-        //val bkp_resultToDisplay = results.map {
-            // Get the top-1 category and craft the display text
-           // it.boundingBox.
-           // val category = it.categories.first()
-            //it.boundingBox.
-            //val text = "${category.label}, ${category.score.times(100).toInt()}%"
 
-            // Create a data object to display the detection result
-            //DetectionResult(it.boundingBox, text)
-         //   DetectionResult(pepsi_box, text)
-        //}
-        val resultToDisplay = mutableListOf<DetectionResult>()
+            // Step 4: Parse the detection result and show it
+//            val bkp_resultToDisplay = results.map {
+//                // Get the top-1 category and craft the display text
+//
+//                val category = it.categories.first()
+//
+//                val text = category.label.toString()//, ${category.score.times(100).toInt()}%"
+//
+//                // Create a data object to display the detection result
+//                DetectionResult(it.boundingBox, text, "Green", "Black")
+//                //   DetectionResult(pepsi_box, text)
+//            }
+            resultToDisplay.add(DetectionResult(item.boundingBox, item.categories.first().label.toString(), "Green", "Black"))
+        }
+
+
         resultToDisplay.add(DetectionResult(pepsi_box,
             "Pepsi +"+add_pepsi_box_count+"|"+"-"+rm_pepsi_box_count,"Blue",
             if(rm_pepsi_box_count == 0 && add_pepsi_box_count == 0) "Green"
@@ -576,6 +573,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 pen.color = Color.RED
             else if(it.textclr == "Green")
                 pen.color = Color.GREEN
+            else if(it.textclr == "Black")
+                pen.color = Color.BLACK
             else
                 pen.color = Color.YELLOW
             pen.strokeWidth = 2F
