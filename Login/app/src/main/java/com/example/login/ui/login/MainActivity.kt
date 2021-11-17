@@ -45,13 +45,21 @@ import java.util.*
 import kotlin.math.max
 import kotlin.math.min
 import android.graphics.RectF
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.login.BuildConfig
 import com.example.login.R
+//import com.google.cloud.storage.StorageOptions
 //import android.util.Log
 
 import com.google.gson.Gson
+//import okhttp3.*
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+    var apiJSON: String = ""
+
     companion object {
         const val TAG = "TFLite - ODT"
         const val REQUEST_IMAGE_CAPTURE: Int = 1
@@ -76,6 +84,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             shelfID = shelfIDstr.toInt()
         }
         //val shelfIDStr: String
+         //run("https://us-central1-objectdetection1-321818.cloudfunctions.net/getPlanogram-1")
 
 
 
@@ -154,9 +163,30 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val results = detector.detect(image)
         val utils = Utils()
         val jsonFileString = utils.getJsonDataFromAsset(applicationContext, "planogram.json")
+        //run("https://api.github.com/users/Evin1-/repos")
+        // Instantiate the RequestQueue.
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://us-central1-objectdetection1-321818.cloudfunctions.net/getPlanogram-1"
+        //val url = "https://getplanogram-az4z9nrb.ew.gateway.dev/getPlanogram"
+        //val url = "https://google.com"
 
+// Request a string response from the provided URL.
+        val stringRequest = StringRequest(
+            Request.Method.GET, url,
+            Response.Listener<String> { response ->
+                // Display the first 500 characters of the response string.
+                apiJSON = response.toString()
+            },
+            Response.ErrorListener { error -> apiJSON = error.toString() })
+
+// Add the request to the RequestQueue.
+        queue.add(stringRequest)
+        Thread.sleep(4000)
+        //run("https://us-central1-objectdetection1-321818.cloudfunctions.net/getPlanogram-1")
+        println("api json "+apiJSON)
+        //println("file json "+jsonFileString)
         val gson = Gson()
-        val planogram = gson.fromJson(jsonFileString,Planogram::class.java)
+        val planogram = gson.fromJson(apiJSON,Planogram::class.java)
         val shelf_details = shelfID?.let { planogram.shelf_details.get(it) }
 
 
@@ -338,7 +368,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 //                DetectionResult(it.boundingBox, text, "Green", "Black")
 //                //   DetectionResult(pepsi_box, text)
 //            }
-            resultToDisplay.add(DetectionResult(item.boundingBox, item.categories.first().label.toString(), "Green", "Black"))
+            resultToDisplay.add(DetectionResult(item.boundingBox, item.categories.first().label.toString(), "Green", "Green"))
         }
 
 

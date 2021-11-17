@@ -1,0 +1,22 @@
+# openapi2-functions.yaml
+swagger: '2.0'
+info:
+  title: API_ID optional-string
+  description: Sample API on API Gateway with a Google Cloud Functions backend
+  version: 1.0.0
+schemes:
+  - https
+produces:
+  - application/json
+paths:
+  /getPlanogram:
+    get:
+      summary: get planogram
+      operationId: getplanogram
+      x-google-backend:
+        address: https://us-central1-objectdetection1-321818.cloudfunctions.net/getPlanogram-1
+      responses:
+        '200':
+          description: A successful response
+          schema:
+            type: string

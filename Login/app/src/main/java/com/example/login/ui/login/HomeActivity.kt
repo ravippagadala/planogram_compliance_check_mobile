@@ -5,6 +5,10 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.TextView
+import com.android.volley.Request
+import com.android.volley.Response
+import com.android.volley.toolbox.StringRequest
+import com.android.volley.toolbox.Volley
 import com.example.login.R
 import com.google.gson.Gson
 
@@ -23,9 +27,25 @@ class HomeActivity : AppCompatActivity() {
         val storeAddress: TextView = findViewById(R.id.storeAddressTV)
         val storeContact: TextView = findViewById(R.id.storeContactTV)
         val numShelves: TextView = findViewById(R.id.numShelvesTV)
-
+        var jsonString: String = ""
         val utils = Utils()
-        val jsonString = utils.getJsonDataFromAsset(applicationContext,"planogram.json")
+                //val jsonString = utils.getJsonDataFromAsset(applicationContext,"planogram.json")
+        val queue = Volley.newRequestQueue(this)
+        val url = "https://getplanogram-az4z9nrb.ew.gateway.dev/getPlanogram"
+        // Request a string response from the provided URL.
+        val stringRequestH = StringRequest(
+            Request.Method.GET, url,
+            Response.Listener<String> { response ->
+
+                // Display the first 500 characters of the response string.
+                jsonString = response.toString()
+            },
+            Response.ErrorListener { error -> jsonString = error.toString() })
+
+// Add the request to the RequestQueue.
+        queue.add(stringRequestH)
+        Thread.sleep(10000)
+        println("home json "+stringRequestH)
         val gson = Gson()
         val planogram = gson.fromJson(jsonString,Planogram::class.java)
 
@@ -42,17 +62,12 @@ class HomeActivity : AppCompatActivity() {
         numShelves.setText("Number of Shelves: " + shelf_details.size)
 
         val product_details = planogram.product_details
-        for (item in product_details){
-            println(item.product_label)
 
-        }
 
         for (item in shelf_details){
-            println("shelf"+item.shelf_id)
+            //println("shelf"+item.shelf_id)
             item.number_of_racks
-            for (rack in item.rack_details){
-                println("rack"+rack.rack_id)
-            }
+
         }
         val shelf_one = findViewById(R.id.firstBTN) as Button
         // set on-click listener
