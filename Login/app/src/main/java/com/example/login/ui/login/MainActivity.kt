@@ -186,7 +186,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         println("api json "+apiJSON)
         //println("file json "+jsonFileString)
         val gson = Gson()
-        val planogram = gson.fromJson(apiJSON,Planogram::class.java)
+        //val planogram = gson.fromJson(apiJSON,Planogram::class.java)
+        val planogram = gson.fromJson(jsonFileString,Planogram::class.java)
         val shelf_details = shelfID?.let { planogram.shelf_details.get(it) }
 
 

@@ -27,9 +27,10 @@ class HomeActivity : AppCompatActivity() {
         val storeAddress: TextView = findViewById(R.id.storeAddressTV)
         val storeContact: TextView = findViewById(R.id.storeContactTV)
         val numShelves: TextView = findViewById(R.id.numShelvesTV)
-        var jsonString: String = ""
+        //var jsonString: String = ""
+        var apiString: String = ""
         val utils = Utils()
-                //val jsonString = utils.getJsonDataFromAsset(applicationContext,"planogram.json")
+        val jsonString = utils.getJsonDataFromAsset(applicationContext,"planogram.json")
         val queue = Volley.newRequestQueue(this)
         val url = "https://getplanogram-az4z9nrb.ew.gateway.dev/getPlanogram"
         // Request a string response from the provided URL.
@@ -38,9 +39,9 @@ class HomeActivity : AppCompatActivity() {
             Response.Listener<String> { response ->
 
                 // Display the first 500 characters of the response string.
-                jsonString = response.toString()
+                apiString = response.toString()
             },
-            Response.ErrorListener { error -> jsonString = error.toString() })
+            Response.ErrorListener { error -> apiString = error.toString() })
 
 // Add the request to the RequestQueue.
         queue.add(stringRequestH)
